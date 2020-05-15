@@ -8,32 +8,35 @@ namespace Fibonacci
     {
         static void Main(string[] args)
         {
+            
+        }
+
+        public List<int> Fibonacci()
+        {
             List<int> Fibonacci = new List<int>();
             int ultimo = 0;
-            
+
             int penultimo = 0;
-            for (int i=0; i < 350; i++ )
+            for (int i = 0; ultimo < 350; i++)
             {
-                if (i<=1)
+                if (i <= 1)
                 {
                     Fibonacci.Add(i);
                     ultimo = i;
                 }
                 else
                 {
-                    Fibonacci.Add(ultimo + penultimo);
-                    int tempUltimo = ultimo + penultimo;
-                    penultimo = ultimo;
-                    ultimo = tempUltimo;
+                    if ((ultimo + penultimo) < 350)
+                    {
+                        Fibonacci.Add(ultimo + penultimo);
+                        int tempUltimo = ultimo + penultimo;
+                        penultimo = ultimo;
+                        ultimo = tempUltimo;
+                    }
+                    else break;
                 }
-
             }
-            foreach (int numero in Fibonacci)
-            {
-                Console.WriteLine(numero);
-            }
-
-
+            return Fibonacci;
         }
     }
 }
